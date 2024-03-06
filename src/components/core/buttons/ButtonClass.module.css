@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Botones
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Button.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 27/02/2024
+*/
+
+/* Aspecto para html button globales */
+button {
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1px solid transparent;
+}
+
+/* ==========================================================================
+   Estilos para los diferentes tipos de botones
+   ========================================================================== */
+
+.btnPrimary {
+  width: auto;
+  color: var(--BasicWhite);
+  padding: 10px 40px 10px 40px;
+  background-color: var(--PrimaryBlue);
+}
+
+.btnSecondary {
+  width: auto;
+  padding: 10px 20px 10px 20px;
+  color: var(--PrimaryBlue);
+  background-color: var(--BasicWhite);
+}
+
+.btnInput {
+  width: 100px;
+  padding: 10px;
+  color: var(--BasicWhite);
+  background-color: var(--Orange);
+}
+
+.btnDefault {
+  width: auto;
+  opacity: 0.5;
+  color: var(--SecondaryGrey);
+  padding: 10px 15px 10px 15px;
+  background-color: var(--SecondaryGrey);
+}
+
+.btnSpecial {
+  width: auto;
+  color: var(--BasicWhite);
+  padding: 10px 40px 10px 40px;
+  background-color: var(--Orange);
+}
+
+.btnSpecial:hover {
+  opacity: 1;
+}

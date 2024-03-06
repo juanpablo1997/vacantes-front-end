@@ -1,0 +1,64 @@
+.createJob > * {
+  text-align: center;
+}
+
+.title {
+  grid-area: title;
+}
+
+.subTitle {
+  margin-bottom: 50px;
+  grid-area: subTitle;
+}
+
+.button {
+  grid-area: button;
+}
+
+/*Areas informationContainer*/
+.item1 {
+  grid-area: item1;
+}
+
+.item2 {
+  grid-area: item2;
+}
+
+.item3 {
+  grid-area: item3;
+}
+
+.items {
+  width: 80%;
+  gap: 80px;
+  /*Mobile firstS*/
+  display: grid;
+  grid-template:
+    "item1"
+    "item2"
+    "item3";
+}
+
+.informationContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.createJob {
+  /*Mobile firstS*/
+  padding: 50px 0px 50px 0px;
+  display: grid;
+  grid-template:
+    "title"
+    "subTitle"
+    "informationContainer"
+    "button";
+}
+
+@media (min-width: 1050px) {
+  .items {
+    grid-template: "item1 item2 item3";
+  }
+}

@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Colores
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene el listado de todos los colores usados en el sitio web
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 28/02/2024
+*/
+
+:root {
+  /*Backround*/
+  --BGPrimary: #0d3878;
+  --BGSecundary: #ffffff;
+  --BGDefautlt: #707070;
+
+  /*Button Text*/
+  --BTNTXTPrimary: #ffffff;
+  --BTNTXTSecundary: #0d3878;
+  --BTNTXTTertiary: #005DA9;
+  --BTNTXTDefault: #707070;
+
+  /*Typography*/
+  --TXTPBasic: #f0f0f0;
+  --TXTPPrimary: #4b5968;
+  --TXTPSecundary: #ff5b00;
+
+  /*Titles*/
+  --TTPrimary: #FFFFFF;
+  --TTSecondary: #0d3878;
+  --TTTertiary: #4b5968;
+
+  /*Border*/
+  --Border: #707070;
+
+
+  --PrimaryBlue: #0d3878;
+  --SecondaryBlue:  #005DA9;
+  --PrimaryGrey: #4b5968;
+  --SecondaryGrey: #707070;
+  --Orange: #ff5b00;
+  --BasicWhite: #FFFFFF;
+  --Success: #16A085;
+  --Error: #E74C3C;
+}

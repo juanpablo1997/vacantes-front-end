@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Navbar
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Navbar.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 05/03/2024
+*/
+
+/* ==========================================================================
+   Contenedor Nav
+   ==========================================================================
+   Contiene todo los enlaces y elementos del navbar */
+.nav {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--BasicWhite);
+  background-color: var(--SecondaryBlue);
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul > li {
+  padding: 15px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+ul > li:hover {
+    border-bottom: 2px solid var(--Orange);
+  }
+  

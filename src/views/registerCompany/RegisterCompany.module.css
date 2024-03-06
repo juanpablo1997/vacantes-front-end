@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Registro de empresas
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente RegisterCompany
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 27/02/2024
+*/
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Formulario de Registro
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Registe.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 27/02/2024
+*/
+
+/* ==========================================================================
+   Estilos para los elementos de la sección de bienvenida
+   ========================================================================== */
+
+.titleWl {
+  grid-area: titleWl;
+}
+
+.subTitleWl {
+  margin-bottom: 120px;
+  grid-area: subTitleWl;
+}
+
+.imageWl {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  grid-area: imageWl;
+}
+
+/* ==========================================================================
+   Estilos para los elementos de la sección del formulario
+   ========================================================================== */
+
+.titleFM {
+  grid-area: titleFM;
+  justify-content: center;
+}
+
+.subtTitleFM {
+  grid-area: subtTitleFM;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+
+.formFM {
+  grid-area: formFM;
+  justify-content: center;
+}
+
+.inputFileFM {
+  display: flex;
+  justify-content: left;
+  grid-area: inputFileFM;
+}
+
+.linkLoginFM {
+  grid-area: linkLoginFM;
+}
+
+.buttonFM {
+  padding-top: 10px;
+  grid-area: buttonFM;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textFM {
+  grid-area: textFM;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Formulario
+   ==========================================================================
+   Contiene entradas de texto y uno de archivo, un link hacia login y un botón
+   que ejecuta la función de envío de información */
+
+.form_inputs {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form > * {
+  width: 100%;
+}
+
+.form {
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Seccion del formulario
+   ==========================================================================
+   Contiene un título, un subtitulo, un fomulario, un link para login y un
+   mensaje de agradecimiento */
+
+/* Apecto del contenedor de los elementos dentro del contenedor formulario */
+.itemContainer {
+  width: 100%;
+  display: grid;
+  grid-template:
+    "titleFM"
+    "subtTitleFM"
+    "formFM"
+    "textFM";
+  padding: 20px;
+}
+
+/* Apecto del contenedor de la sección del formulario */
+.formContainer {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  grid-area: formContainer;
+  background-color: var(--BasicWhite);
+}
+
+/* ==========================================================================
+   Seccion Bienvenida
+   ==========================================================================
+   Contiene una imagen, un título y un mensaje */
+
+/* Apecto del contenedor de la bienvenida */
+.welcomeContainer {
+  display: grid;
+  grid-template:
+    "titleWl" auto
+    "subTitleWl" auto
+    "imageWl" auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 50px 0px 0px 0px;
+  grid-area: welcomeContainer;
+  background-color: var(--PrimaryBlue);
+}
+
+/* ==========================================================================
+   Contenedor de secciones
+   ==========================================================================
+   Contiene 2 secciones de tipo contenedor: Uno para la imagen y otro para el 
+   formulario */
+
+/* Apecto del contenedor externo */
+.sectionContainer {
+  width: 800px;
+  display: grid;
+  grid-template:
+    "welcomeContainer"
+    "formContainer";
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+  -moz-box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+  box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+}
+
+/* ==========================================================================
+   Diseño Adaptable
+   ==========================================================================*/
+
+/* Vista para cuando la pantalla es superior a 1050px */
+@media (min-width: 1050px) {
+  .sectionContainer {
+    grid-template:
+      "welcomeContainer formContainer" auto /
+      50% 50%;
+  }
+}
+
+/* Si la pantalla supera los 1050px de ancho se ocultará la parte de la bienvenida */
+@media (max-width: 1050px) {
+  .welcomeContainer {
+    display: none;
+  }
+}

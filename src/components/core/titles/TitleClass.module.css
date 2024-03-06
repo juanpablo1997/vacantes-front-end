@@ -1,0 +1,27 @@
+@import "../../styles/Colors.css";
+
+:root {
+  --small: 1.2rem;
+  --small2: 1.5rem;
+  --big: 2.5rem;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.smallTitle {
+  font-size: var(--small);
+  color: var(--TTPrimary);
+}
+
+.smallTitle2 {
+  font-size: var(--small2);
+  color: var(--TTSecondary);
+}
+
+.bigTitle {
+  font-size: var(--big);
+  color: var(--TTSecondary);
+}

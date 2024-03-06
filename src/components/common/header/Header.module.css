@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Header
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Header.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 5/03/2024
+*/
+
+/* ==========================================================================
+   Contenedor principal 
+   ==========================================================================
+   Contiene 1 todos los elementos dentro del header */
+
+.header {
+  width: 110%;
+  height: 280px;
+  margin: 0 -5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--PrimaryBlue);
+  border-radius: 0% 0% 50% 50% / 0% 0% 30% 30%;
+}
+
+/* ==========================================================================
+   Contenedor del contenido
+   ==========================================================================
+   Contiene 1 elemento que contiene todos los elementos */
+.contentContainer {
+  width: 86%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Contenedor del contenido
+   ==========================================================================
+   Da el ancho del contenedor */
+.itemsContainer {
+  width: 55%;
+}
+
+/* ==========================================================================
+   Elementos
+   ==========================================================================
+   Contiene todos los items o elementos del header */
+.items {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}

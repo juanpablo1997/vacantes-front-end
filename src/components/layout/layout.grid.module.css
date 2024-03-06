@@ -1,0 +1,110 @@
+/*
+    LAYOUT FOR PAGE
+    ---------------
+    Section that contains the structure of all pages
+    -------------------------------------------------------------------------------------------------------
+*/
+
+/*LAYOUT HOMEPAGE*/
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "header" auto
+    "main" auto;
+}
+
+/*
+    LAYOUT FOR COMPONENTS
+    ---------------------
+    Section that contains the structure of all components
+    -------------------------------------------------------------------------------------------------------
+*/
+
+/*SECTION HEADER*/
+
+
+/*SECTION CREATE USER*/
+.createUserInfoContainer {
+  grid-area: createUserInfo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createUserImgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: createUserImgContainer;
+}
+
+.createUserContainer {
+  width: 100%;
+  display: grid;
+  grid-template:
+    "createUserInfo" auto
+    "createUserImgContainer" auto;
+}
+
+/*SECTION CREATE JOBS*/
+.titleContainer {
+  text-align: center;
+  grid-area: titleContainer;
+}
+
+.informationContainer {
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+  grid-area: informationContainer;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: buttonContainer;
+}
+
+.createJobContainer {
+  display: grid;
+  grid-template:
+    "titleContainer"
+    "informationContainer"
+    "buttonContainer";
+}
+
+/*
+    RESPONSIVE DESING
+    -----------------
+    Section that contains the structure of all components
+*/
+@media (min-width: 1050px) {
+  .createUserContainer {
+    grid-template:
+      "createUserInfo createUserImgContainer" auto /
+      55% 45%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .createUserContainer {
+    grid-template: "createUserInfo";
+  }
+
+  .createUserImgContainer {
+    display: none;
+  }
+}

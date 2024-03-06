@@ -1,0 +1,22 @@
+/* ==========================================================================
+   ImgPerfil
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene los estilos para el componente ImgPerfil.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 05/03/2024
+*/
+
+.container {
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  margin-left: 30px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: #E7E7E7;
+  border: 1px solid var(--BasicWhite);
+}

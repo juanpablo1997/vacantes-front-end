@@ -1,0 +1,36 @@
+.container {
+  width: auto;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  color: var(--BTNTXTSecundary);
+  border: 1px solid var(--BGPrimary);
+}
+
+.container:hover {
+  color: var(--BGSecundary);
+  background-color: var(--BGPrimary);
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.input {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: aqua;
+}
+
+.uploadedFile {
+  width: auto;
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  color: var(--BasicWhite);
+  background-color: var(--Success);
+}
