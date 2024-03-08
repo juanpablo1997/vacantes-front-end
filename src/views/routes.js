@@ -4,4 +4,5 @@ export const routesList = {
   jobs: "/jobs",
   registerCompany: "/registerCompany",
   myOffers: "/myOffers",
+  createOffer: "/createOffer",
 };

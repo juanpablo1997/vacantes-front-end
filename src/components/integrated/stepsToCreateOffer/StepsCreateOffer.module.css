@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Pasos para crear oferta
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Stepes Create Offer.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 27/02/2024
+*/
+
+/* ==========================================================================
+   Estilos para contenedor
+   ========================================================================== */
+.container {
+  display: flex;
+  padding: 50px 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Estilos para areas del grid
+   ========================================================================== */
+.title {
+  grid-area: title;
+}
+
+.subtitle {
+  grid-area: subtitle;
+}
+
+.button {
+  grid-area: button;
+}
+
+.img {
+  grid-area: img;
+}
+
+.information {
+  grid-area: information;
+}
+
+.points {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Estilos para contenedor grid
+   ========================================================================== */
+.grid {
+  gap: 20px;
+  width: 60%;
+  display: grid;
+  grid-template: 
+    "title"
+    "subtitle"
+    "button"
+    "img"
+    "information";
+}
+
+  /* ==========================================================================
+     Diseño Adaptable
+     ==========================================================================*/
+  
+  /* Vista para cuando la pantalla es superior a 1050px */
+  @media (min-width: 1050px) {
+    .grid {
+      grid-template:
+        "title    title"       auto
+        "subtitle subtitle"    auto
+        "button   button"      auto
+        "img      information" auto /
+        50% 50%;
+    }
+  }

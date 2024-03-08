@@ -18,7 +18,8 @@ h2 {
 
 .smallTitle {
     font-size: var(--small);
-    color: var(--TTPrimary);
+    color: var(--TTTertiary);
+    text-align: center;
 }
 
 .bigTitle {

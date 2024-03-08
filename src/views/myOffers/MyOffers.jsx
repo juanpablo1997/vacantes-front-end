@@ -20,6 +20,7 @@ import { useState, useEffect, useContext } from "react";
  * Componentes
  * ====================*/
 import ProfileBar from "../../components/core/profileBar/ProfileBar";
+import StepsCreateOffer from "../../components/integrated/stepsToCreateOffer/StepsCreateOffer";
 
 /**
  * ==============================
@@ -77,8 +78,9 @@ const MyOffers = () => {
   }
 
   return (
-    <div>
+    <div className={CSS.container}>
       <ProfileBar name={name}/>
+      <StepsCreateOffer />
     </div>
   );
 };

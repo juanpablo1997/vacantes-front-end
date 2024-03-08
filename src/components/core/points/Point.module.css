@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+  width: 50px;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+  margin-right: 30px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--BasicWhite);
+  background-color: var(--PrimaryBlue);
+}

@@ -18,6 +18,7 @@ import Homepage from "./views/Homepage";
 import MyOffers from "./views/myOffers/MyOffers";
 import Navbar from "./components/common/navbar/Navbar";
 import RegisterCompany from "./views/registerCompany/RegisterCompany";
+import Createoffer from "./views/createOffer/Createoffer";
 
 function App() {
   const { userType } = useContext(MyContext);
@@ -29,11 +30,9 @@ function App() {
         <Route path={routesList.login} element={<Login />} />
         <Route path={routesList.homepage} element={<Homepage />} />
         <Route path={routesList.jobs} element={<Jobs />} />
-        <Route
-          path={routesList.registerCompany}
-          element={<RegisterCompany />}
-        />
+        <Route path={routesList.registerCompany} element={<RegisterCompany />} />
         <Route path={routesList.myOffers} element={<MyOffers />} />
+        <Route path={routesList.createOffer} element={<Createoffer />} />
       </Routes>
     </BrowserRouter>
   );
