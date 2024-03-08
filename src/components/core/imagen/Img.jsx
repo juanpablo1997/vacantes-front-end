@@ -16,6 +16,9 @@ const Img = ({ imgType, src, alt }) => {
     case "icon": 
       imgClass = styles.icon;
       break;
+    case "imgBox": 
+      imgClass = styles.imgBox;
+      break;
     default:
       imgClass = styles.default;
       break;

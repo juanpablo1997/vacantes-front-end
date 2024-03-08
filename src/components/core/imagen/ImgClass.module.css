@@ -17,3 +17,7 @@
   border-radius: 50%;
   object-fit: scale-down;
 }
+
+.imgBox {
+  width: 50%;
+}

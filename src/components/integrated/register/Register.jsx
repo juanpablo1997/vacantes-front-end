@@ -36,7 +36,6 @@ import InputFile from "../../../components/core/inputsFile/InputFile";
  * ==============================
  * Este componente renderiza un formulario de registro para ingresar
  * empresas a la base de datos vacantes_react en la tabla company. */
-
 const Register = () => {
   // Declaración de variables globales
   const storage = getStorage(AppFirebase);
