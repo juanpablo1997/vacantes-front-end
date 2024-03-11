@@ -7,7 +7,7 @@ const MyProvider = ({ children }) => {
   let user = null;
   // 1. Obtener el valor del userType del localStorage
   const valueStorage = localStorage.getItem("userType");
-  const valueUser = localStorage.getItem("user");
+  const valueUser = JSON.parse(localStorage.getItem("user"));
 
   // 2. Verificar si el valor es null
   if (valueStorage === null && valueUser === null) {

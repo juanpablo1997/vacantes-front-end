@@ -2,7 +2,7 @@
  * ====================
  * Estilos
  * ====================*/
-//import css from "../myOffers/MyOffers.module.css";
+import css from "../myOffers/MyOffers.module.css";
 
 /**
  * ====================
@@ -78,7 +78,7 @@ const MyOffers = () => {
   }
 
   return (
-    <div className={CSS.container}>
+    <div className={css.container}>
       <ProfileBar name={name}/>
       <StepsCreateOffer />
     </div>

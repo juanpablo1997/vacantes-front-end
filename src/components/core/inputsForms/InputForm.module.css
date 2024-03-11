@@ -1,4 +1,4 @@
-@import "../../styles/Colors.css";
+
 
 .general {
     width: 100%;
@@ -7,3 +7,8 @@
     border-radius: 50px;
     border: 1px solid var(--Border);
 }
+
+.general::placeholder {
+    color: var(--Border);
+}
+

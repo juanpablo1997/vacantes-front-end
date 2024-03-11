@@ -1,7 +1,13 @@
-import React from "react";
+import css from "../createOffer/CreateOffer.module.css";
+
+import PostOfferForm from "../../components/integrated/postOfferForm/PostOfferForm";
 
 const Createoffer = () => {
-  return <div>Createoffer component</div>;
+  return (
+    <div className={css.container}>
+      <PostOfferForm />
+    </div>
+  );
 };
 
 export default Createoffer;

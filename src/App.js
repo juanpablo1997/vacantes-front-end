@@ -21,7 +21,7 @@ import RegisterCompany from "./views/registerCompany/RegisterCompany";
 import Createoffer from "./views/createOffer/Createoffer";
 
 function App() {
-  const { userType } = useContext(MyContext);
+  const { userType } = useContext(MyContext); 
 
   return (
     <BrowserRouter>

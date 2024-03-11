@@ -32,7 +32,7 @@ import imgPerfilDefault from "../../../assets/img/perfilVacio.png";
  * Este componente renderiza todas las opciones para navegar según seas su tipo de usuario */
 const Navbar = ({ userType }) => {
   const { setUserType, existingUser, setExistingUser, setCloseSesion } = useContext(MyContext);
-  const [ imgPerfil, setImgPerfil ] = useState(imgPerfilDefault);
+  const [imgPerfil, setImgPerfil] = useState(imgPerfilDefault);
 
   // Funcion para cerrar sesión. Resetea todas las variables implicadas en el proceso
   const logOut = () => {
@@ -55,11 +55,20 @@ const Navbar = ({ userType }) => {
           <>
             <li>
               <Link to={routesList.myOffers} style={{ textDecoration: "none" }}>
-                <Typography textType="txtSecundaryCenter2" value="Nuestras ofertas" />
+                <Typography
+                  textType="txtSecundaryCenter2"
+                  value="Nuestras ofertas"
+                />
               </Link>
             </li>
-            <li>Crear nueva oferta</li>
-            <li>Option company 3</li>
+            <li>
+              <Link to={routesList.createOffer} style={{ textDecoration: "none" }}>
+                <Typography
+                  textType="txtSecundaryCenter2"
+                  value="Crear oferta"
+                />
+              </Link>
+            </li>
           </>
         )}
         {userType === "person" && (
@@ -76,7 +85,9 @@ const Navbar = ({ userType }) => {
           </>
         )}
         {existingUser !== null ? (
-          <Button buttonType="btnSpecial" onClick={logOut}>Cerrar sesión</Button>
+          <Button buttonType="btnSpecial" onClick={logOut}>
+            Cerrar sesión
+          </Button>
         ) : (
           <>
             <Link to={routesList.login} style={{ textDecoration: "none" }}>
@@ -86,10 +97,10 @@ const Navbar = ({ userType }) => {
         )}
       </ul>
       {existingUser !== null ? (
-          <ImgPerfil imgPerfil={existingUser.logo}/>
-        ) : (
-          <ImgPerfil imgPerfil={imgPerfil}/>
-        )}
+        <ImgPerfil imgPerfil={existingUser.logo} />
+      ) : (
+        <ImgPerfil imgPerfil={imgPerfil} />
+      )}
     </nav>
   );
 };
