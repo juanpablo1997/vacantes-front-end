@@ -2,7 +2,7 @@
  * ====================
  * Estilos
  * ====================*/
-import css from "../login/LoginForm.module.css";
+import css from "../postOfferForm/PostOfferForm.module.css";
 
 /**
  * ====================
@@ -27,6 +27,7 @@ import Img from "../../../components/core/imagen/Img";
 import ImagePostOffer from "../../../assets/img/postOfferFormImg.png";
 import Button from "../../../components/core/buttons/Button";
 import Input from "../../../components/core/inputsForms/InputForm";
+import CustomSelect from "../../core/customSelect/CustomSelect";
 
 /**
  * ==============================
@@ -42,6 +43,8 @@ const PostOfferForm = () => {
   const [experience, setExperience] = useState("");
   const { setUserType, setExistingUser, setCloseSesion } =
     useContext(MyContext);
+  const cities = ["Medellín", "Bogotá", "Cali", "Cartagena", "Barranquilla"];
+  const jobsTypes = ["Remoto", "Presencial", "Semi-presencial"];
 
   /**
    *  Funcion para manejar el envió de los datos necesarios para el login
@@ -67,7 +70,7 @@ const PostOfferForm = () => {
       <div className={css.formContainer}>
         <div className={css.itemContainer}>
           <div className={css.titleFM}>
-            <Title titleType="smallTitle2" value="Crear oferta" />
+            <Title titleType="smallTitle2" value="Crear nueva oferta" />
           </div>
           <div className={css.subtTitleFM}>
             <Typography
@@ -85,50 +88,39 @@ const PostOfferForm = () => {
                   placeholder="Nombre de la oferta ejm. Panadero"
                   onChange={(e) => setTitle(e.target.value)}
                 />
-                <Input
-                  value={fromDate}
-                  inputType="general"
-                  type="date"
-                  placeholder="d"
-                  onChange={(e) => setFromDate(e.target.value)}
-                />
-                <Input
-                  value={untilDate}
-                  inputType="general"
-                  type="date"
-                  placeholder="d"
-                  onChange={(e) => setUntilDate(e.target.value)}
-                />
-                <Input
-                  value={city}
-                  inputType="general"
-                  type="text"
-                  multiple
-                  list="type"
-                  placeholder="Ciudad donde se abre la vacante"
+                <div className={css.fechas}>
+                  <Typography
+                    textType="txtSecundaryCenter1"
+                    value="Desde:"
+                  />
+                  <Input
+                    value={fromDate}
+                    inputType="fecha"
+                    type="date"
+                    min={new Date().toISOString().slice(0, 10)}
+                    onChange={(e) => setFromDate(e.target.value)}
+                  />
+                  <Typography
+                    textType="txtSecundaryCenter1"
+                    value="Hasta:"
+                  />
+                  <Input
+                    value={untilDate}
+                    inputType="fecha"
+                    type="date"
+                    onChange={(e) => setUntilDate(e.target.value)}
+                  />
+                </div>
+                <CustomSelect
+                  text="Selecciona la ciudad donde se abre la oferta"
+                  options={cities}
                   onChange={(e) => setCity(e.target.value)}
                 />
-                <datalist id="type">
-                  <option value="Medellín">Medellín</option>
-                  <option value="Bogotá">Bogotá</option>
-                  <option value="Cali">Cali</option>
-                  <option value="Barranquilla">Barranquilla</option>
-                  <option value="Cartagena">Cartagena</option>
-                </datalist>
-                <Input
-                  value={jobType}
-                  inputType="general"
-                  type="text"
-                  multiple
-                  list="type"
-                  placeholder="Selecciona la modalidad de la oferta"
+                <CustomSelect
+                  text="Selecciona la modalidad de la oferta"
+                  options={jobsTypes}
                   onChange={(e) => setJobType(e.target.value)}
                 />
-                <datalist id="type">
-                  <option value="Presencial">Presencial</option>
-                  <option value="Remoto">Remoto</option>
-                  <option value="Híbrido">Híbrido</option>
-                </datalist>
                 <Input
                   value={experience}
                   inputType="general"

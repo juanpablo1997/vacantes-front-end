@@ -1,15 +1,15 @@
 /* ==========================================================================
-   Imputs Form
+   Custom Select
    ==========================================================================
 
   Descripción del archivo:
-  - Objetivo: Contiene todos los estilos para el componente InputsForm.jsx
+  - Objetivo: Contiene todos los estilos para el componente CustomSelect.jsx
   - Autor: Juan Pablo Orozco
   - Verción:  1.0
   - Fecha Creación: 11/03/2024
 */
 
-.general {
+.select {
   width: 100%;
   outline: none;
   padding: 10px;
@@ -17,14 +17,6 @@
   border: 1px solid var(--Border);
 }
 
-.fecha {
-  width: 35%;
-  outline: none;
-  padding: 10px;
-  border-radius: 50px;
-  border: 1px solid var(--Border);
-}
-
-.general::placeholder {
-  color: var(--Border);
+.option {
+    padding: 5px;
 }

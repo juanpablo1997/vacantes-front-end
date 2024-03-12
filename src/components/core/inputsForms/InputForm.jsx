@@ -7,6 +7,9 @@ const InputForm = ({ inputType, ...otherProps }) => {
     case "general":
       inputClass = css.general;
       break;
+    case "fecha":
+      inputClass = css.fecha;
+      break;
     default:
       break;
   }
