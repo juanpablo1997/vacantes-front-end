@@ -40,3 +40,13 @@ export const postDataCompanies = async (data) => {
     throw error;
   }
 };
+
+export const postDataJob = async (data) => {
+  try {
+    const response = await axios.post(`${API_URL}/job`, data);
+    return response;
+  } catch (error) {
+    console.error("Error al realizar la petición POST:", error);
+    throw error;
+  }
+};
