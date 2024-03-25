@@ -43,7 +43,8 @@ const PostOfferForm = () => {
   const [experienceString, setExperience] = useState("");
   const [company_id, setCompanyId] = useState(0);
   const [goLogin, setGoLogin] = useState(false);
-  const {closeSesion, existingUser} = useContext(MyContext);
+  const [goMyOffers, setGoMyOffers] = useState(false);
+  const { closeSesion, existingUser } = useContext(MyContext);
 
   // Listas para componentes CustomSelect
   const cities = ["Medellín", "Bogotá", "Cali", "Cartagena", "Barranquilla"];
@@ -60,7 +61,9 @@ const PostOfferForm = () => {
   const validateSession = async () => {
     try {
       // Trae las variables para generar el ID sesion y realizar comparación
-      const { username, email, id } = await JSON.parse(localStorage.getItem("user"));
+      const { username, email, id } = await JSON.parse(
+        localStorage.getItem("user")
+      );
       // Trae el ID de la sesion para comparar
       const idSession = localStorage.getItem("idSession");
 
@@ -73,7 +76,7 @@ const PostOfferForm = () => {
 
         // Reseteamos el localStorage
         localStorage.clear();
-      }
+      } 
     } catch (error) {
       Swal.fire({
         position: "center",
@@ -138,6 +141,8 @@ const PostOfferForm = () => {
         });
 
         handleReset();
+        setGoMyOffers(true);
+
       }
     } catch (error) {
       Swal.fire({
@@ -152,18 +157,20 @@ const PostOfferForm = () => {
 
   useEffect(() => {
     if (existingUser) {
-      validateSession()
-    } else (
-      setGoLogin(true)
-    )
-  }, [existingUser])
-  
+      validateSession();
+    } else setGoLogin(true);
+  }, [existingUser]);
+
+  if (goMyOffers) { 
+    return <Navigate to={routesList.myOffers} />
+  }
+
   if (goLogin) {
     return <Navigate to={routesList.login} />;
   }
 
   if (closeSesion) {
-    return <Navigate to={ routesList.homepage } />
+    return <Navigate to={routesList.homepage} />;
   }
 
   return (

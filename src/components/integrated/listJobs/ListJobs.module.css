@@ -17,6 +17,13 @@
   width: 50%;
 }
 
+.containerItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .containerListJobs {
   margin-top: 30px;
   gap: 10px;
@@ -28,6 +35,11 @@
   overflow-y: scroll;
   flex-direction: column;
   border: 1px solid transparent;
+}
+
+.containerPagination {
+  display: flex;
+  margin-top: 50px;
 }
 
 /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
