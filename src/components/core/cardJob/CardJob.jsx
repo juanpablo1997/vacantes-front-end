@@ -31,8 +31,8 @@ const CardJob = ({ job }) => {
       </div>
       <div>
         <p>{`Publicada el ${formatearFecha(job.from_date)}`}</p>
-        <p>{job.city}</p>
-        <p>{job.job_type}</p>
+        <p>{`Ciudad donde se realiza la oferta ${job.city}`}</p>
+        <p>{`Modalidad ${job.job_type}`}</p>
         <p>
           {calculationMonths(job.experience) <= 1
             ? `Se requieren como minímo 6 meses de experiencia.`

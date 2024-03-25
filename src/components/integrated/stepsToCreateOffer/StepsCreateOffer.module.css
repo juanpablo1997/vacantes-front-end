@@ -36,6 +36,8 @@
 
 .img {
   grid-area: img;
+  mask-image: linear-gradient(white 85%,
+  transparent);
 }
 
 .information {
