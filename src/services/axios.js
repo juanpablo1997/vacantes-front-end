@@ -50,3 +50,13 @@ export const postDataJob = async (data) => {
     throw error;
   }
 };
+
+export const getAllJobs = async (id) => {
+  try {
+    const response = await axios.get(`${API_URL}/job/all/${id}/1/10`);
+    return response;
+  } catch (error) {
+    console.error("Error al realizar la petición GET:", error);
+    throw error;
+  }
+};

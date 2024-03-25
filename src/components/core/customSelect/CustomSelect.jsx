@@ -13,9 +13,9 @@ import style from "../customSelect/CustomSelect.module.css";
 const CustomSelect = ({ text, options, ...props }) => {
   return (
     <select className={style.select} {...props} defaultValue={'DEFAULT'}>
-      <option  value="DEFAULT" disabled>{text}</option>
+      <option value="DEFAULT" disabled>{text}</option>
       {options.map((option, index) => (
-        <option className={style.option} key={index} value={option}>
+        <option key={index} value={option}>
           {option}
         </option>
       ))}

@@ -21,6 +21,7 @@ import { useState, useEffect, useContext } from "react";
  * ====================*/
 import ProfileBar from "../../components/core/profileBar/ProfileBar";
 import StepsCreateOffer from "../../components/integrated/stepsToCreateOffer/StepsCreateOffer";
+import ListJobs from "../../components/integrated/listJobs/ListJobs";
 
 /**
  * ==============================
@@ -31,7 +32,7 @@ import StepsCreateOffer from "../../components/integrated/stepsToCreateOffer/Ste
 const MyOffers = () => {
   // Declaración de variables globales
   const [name, setName] = useState("");
-  const {closeSesion} = useContext(MyContext);
+  const {closeSesion, existingUser} = useContext(MyContext);
   const [goLogin, setGoLogin] = useState(false);
 
   // Funcion para obtener la data de la empresa cargada en localStorage
@@ -47,7 +48,7 @@ const MyOffers = () => {
       if (idSession !== md5(id + email + username)) {
         // Asignamos a goLogin el valor true para poder redireccionar
         setGoLogin(true);
-        
+
         // Reseteamos el localStorage
         localStorage.clear();
       }
@@ -66,8 +67,12 @@ const MyOffers = () => {
   };
 
   useEffect(() => {
-    loadDataCompanyLocalStorage()
-  }, [])
+    if (existingUser) {
+      loadDataCompanyLocalStorage()
+    } else (
+      setGoLogin(true)
+    )
+  }, [existingUser])
 
   if (goLogin) {
     return <Navigate to={ routesList.login } />
@@ -81,6 +86,7 @@ const MyOffers = () => {
     <div className={css.container}>
       <ProfileBar name={name}/>
       <StepsCreateOffer />
+      <ListJobs />
     </div>
   );
 };

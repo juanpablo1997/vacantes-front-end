@@ -31,7 +31,8 @@ import imgPerfilDefault from "../../../assets/img/perfilVacio.png";
  * ==============================
  * Este componente renderiza todas las opciones para navegar según seas su tipo de usuario */
 const Navbar = ({ userType }) => {
-  const { setUserType, existingUser, setExistingUser, setCloseSesion } = useContext(MyContext);
+  const { setUserType, existingUser, setExistingUser, setCloseSesion } =
+    useContext(MyContext);
   const [imgPerfil, setImgPerfil] = useState(imgPerfilDefault);
 
   // Funcion para cerrar sesión. Resetea todas las variables implicadas en el proceso
@@ -62,7 +63,10 @@ const Navbar = ({ userType }) => {
               </Link>
             </li>
             <li>
-              <Link to={routesList.createOffer} style={{ textDecoration: "none" }}>
+              <Link
+                to={routesList.createOffer}
+                style={{ textDecoration: "none" }}
+              >
                 <Typography
                   textType="txtSecundaryCenter2"
                   value="Crear oferta"
@@ -80,7 +84,11 @@ const Navbar = ({ userType }) => {
         )}
         {userType === "default" && (
           <>
-            <li>Inicio</li>
+            <li>
+              <Link to={routesList.homepage} style={{ textDecoration: "none" }}>
+                <Typography textType="txtSecundaryCenter2" value="Inicio" />
+              </Link>
+            </li>
             <li>Nosotros</li>
           </>
         )}

@@ -10,8 +10,8 @@ import css from "../postOfferForm/PostOfferForm.module.css";
  * ====================*/
 import md5 from "md5";
 import Swal from "sweetalert2";
-import { useState, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { routesList } from "../../../views/routes";
 import { MyContext } from "../../../context/Context";
 import { postDataJob } from "../../../services/axios";
@@ -41,14 +41,55 @@ const PostOfferForm = () => {
   const [city, setCity] = useState("");
   const [job_type, setJobType] = useState("");
   const [experienceString, setExperience] = useState("");
-  const company_id = JSON.parse(localStorage.getItem("user")).company_id;
+  const [company_id, setCompanyId] = useState(0);
+  const [goLogin, setGoLogin] = useState(false);
+  const {closeSesion, existingUser} = useContext(MyContext);
 
-  // Listas
+  // Listas para componentes CustomSelect
   const cities = ["Medellín", "Bogotá", "Cali", "Cartagena", "Barranquilla"];
   const jobsTypes = ["Remoto", "Presencial", "Semi-presencial"];
 
+  const handleReset = () => {
+    setTitle("");
+    setFromDate("");
+    setUntilDate("");
+    setExperience("");
+  };
+
+  // Funcion para obtener la data de la empresa cargada en localStorage
+  const validateSession = async () => {
+    try {
+      // Trae las variables para generar el ID sesion y realizar comparación
+      const { username, email, id } = await JSON.parse(localStorage.getItem("user"));
+      // Trae el ID de la sesion para comparar
+      const idSession = localStorage.getItem("idSession");
+
+      setCompanyId(JSON.parse(localStorage.getItem("user")).company_id);
+
+      // Validamos el ID de la sesion
+      if (idSession !== md5(id + email + username)) {
+        // Asignamos a goLogin el valor true para poder redireccionar
+        setGoLogin(true);
+
+        // Reseteamos el localStorage
+        localStorage.clear();
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: error.message,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+
+      // Reseteamos el localStorage
+      localStorage.clear();
+    }
+  };
+
   /**
-   *  Funcion que realiza el envió de los datos de la nueva oferta hacia la BD una vez 
+   *  Funcion que realiza el envió de los datos de la nueva oferta hacia la BD una vez
    *  se precione el botón de crear oferta
    */
   const handleSubmit = async (e) => {
@@ -75,10 +116,19 @@ const PostOfferForm = () => {
         const experience = parseInt(experienceString);
 
         // Creamos el objeto con la data de la oferta que se va a guardar en BD
-        const dataJob = { title, from_date, until_date, city, job_type, experience, company_id };
-        
+        const dataJob = {
+          title,
+          from_date,
+          until_date,
+          city,
+          job_type,
+          experience,
+          company_id,
+        };
+
         // Hacer consumo al servico POST de la Api
         const { data } = await postDataJob(dataJob);
+
         Swal.fire({
           position: "center",
           icon: "success",
@@ -86,6 +136,8 @@ const PostOfferForm = () => {
           showConfirmButton: false,
           timer: 2000,
         });
+
+        handleReset();
       }
     } catch (error) {
       Swal.fire({
@@ -97,6 +149,22 @@ const PostOfferForm = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (existingUser) {
+      validateSession()
+    } else (
+      setGoLogin(true)
+    )
+  }, [existingUser])
+  
+  if (goLogin) {
+    return <Navigate to={routesList.login} />;
+  }
+
+  if (closeSesion) {
+    return <Navigate to={ routesList.homepage } />
+  }
 
   return (
     <div className={css.sectionContainer}>
