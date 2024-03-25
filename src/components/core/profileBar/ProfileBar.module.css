@@ -1,4 +1,5 @@
 .profileBar {
+    width: 100%;
     height: 40px;
     padding: 20px;
     display: flex;

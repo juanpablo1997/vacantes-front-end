@@ -58,7 +58,7 @@ const Navbar = ({ userType }) => {
               <Link to={routesList.myOffers} style={{ textDecoration: "none" }}>
                 <Typography
                   textType="txtSecundaryCenter2"
-                  value="Nuestras ofertas"
+                  value="Ofertas activas"
                 />
               </Link>
             </li>
