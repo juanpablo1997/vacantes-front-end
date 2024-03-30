@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
 }
 
 .containerItems {
@@ -38,8 +38,9 @@
 }
 
 .containerPagination {
+  gap: 20px;
   display: flex;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/

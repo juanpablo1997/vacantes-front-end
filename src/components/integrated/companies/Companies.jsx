@@ -51,6 +51,7 @@ const Companies = () => {
 
     // Llama a la función para obtener las imágenes cuando el componente se monta
     fetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

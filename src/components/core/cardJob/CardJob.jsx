@@ -8,6 +8,7 @@ import css from "../cardJob/CardJobs.module.css";
  * ====================
  * Hooks - Dependencias
  * ====================*/
+import { useState, useContext } from "react";
 import formatearFecha from "../../../utils/functions/parseDate";
 import calculationMonths from "../../../utils/functions/calculationMonths";
 
@@ -17,6 +18,7 @@ import calculationMonths from "../../../utils/functions/calculationMonths";
  * ====================*/
 import SubTitle from "../subTitles/SubTitle";
 import Button from "../buttons/Button";
+import { MyContext } from "../../../context/Context";
 
 /**
  * ==============================
@@ -24,6 +26,11 @@ import Button from "../buttons/Button";
  * ==============================
  * Este componente renderiza una tarjeta con información sobre el trabajo. */
 const CardJob = ({ job }) => {
+  const [offer, setOffer] = useState({});
+  const { setModal } = useContext(MyContext);
+
+
+
   return (
     <div className={css.card}>
       <div>
@@ -43,7 +50,7 @@ const CardJob = ({ job }) => {
       </div>
       <div className={css.buttons}>
         <Button buttonType="btnPrimary">Eliminar</Button>
-        <Button buttonType="btnPrimary">Actializar</Button>
+        <Button buttonType="btnPrimary"  onClick={() => setModal(true)}>Actializar</Button>
       </div>
     </div>
   );

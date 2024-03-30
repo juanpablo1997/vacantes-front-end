@@ -22,6 +22,7 @@ const MyProvider = ({ children }) => {
   const [userType, setUserType] = useState(type);
   const [existingUser, setExistingUser] = useState(user);
   const [closeSesion, setCloseSesion] = useState(false);
+  const [modal, setModal] = useState(true);
 
   return (
     <MyContext.Provider
@@ -32,6 +33,8 @@ const MyProvider = ({ children }) => {
         setExistingUser,
         closeSesion,
         setCloseSesion,
+        modal,
+        setModal,
       }}
     >
       {children}

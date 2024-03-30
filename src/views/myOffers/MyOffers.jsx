@@ -22,6 +22,9 @@ import { useState, useEffect, useContext } from "react";
 import ProfileBar from "../../components/core/profileBar/ProfileBar";
 import StepsCreateOffer from "../../components/integrated/stepsToCreateOffer/StepsCreateOffer";
 import ListJobs from "../../components/integrated/listJobs/ListJobs";
+import DetailsJobs from "../../components/integrated/detailsJobs/DetailsJobs";
+import Title from "../../components/core/titles/Title";
+import Modal from "../../components/integrated/modal/Modal";
 
 /**
  * ==============================
@@ -32,8 +35,8 @@ import ListJobs from "../../components/integrated/listJobs/ListJobs";
 const MyOffers = () => {
   // Declaración de variables globales
   const [name, setName] = useState("");
-  const {closeSesion, existingUser} = useContext(MyContext);
   const [goLogin, setGoLogin] = useState(false);
+  const { closeSesion, existingUser, modal, setModal } = useContext(MyContext);
 
   // Funcion para obtener la data de la empresa cargada en localStorage
   const loadDataCompanyLocalStorage = async () => {
@@ -68,25 +71,33 @@ const MyOffers = () => {
 
   useEffect(() => {
     if (existingUser) {
-      loadDataCompanyLocalStorage()
-    } else (
-      setGoLogin(true)
-    )
-  }, [existingUser])
+      loadDataCompanyLocalStorage();
+    } else setGoLogin(true);
+  }, [existingUser]);
 
   if (goLogin) {
-    return <Navigate to={ routesList.login } />
+    return <Navigate to={routesList.login} />;
   }
 
   if (closeSesion) {
-    return <Navigate to={ routesList.homepage } />
+    return <Navigate to={routesList.homepage} />;
   }
 
   return (
     <div className={css.container}>
-      <ProfileBar name={name}/>
+      <ProfileBar name={name} />
       <StepsCreateOffer />
-      <ListJobs />
+      <Title titleType="bigTitle" value="Ofertas activas" />
+      <div className={css.jobs}>
+        <ListJobs />
+        {
+          modal && (
+            <Modal />
+          )
+        }
+        <DetailsJobs />
+      </div>
+      
     </div>
   );
 };

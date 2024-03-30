@@ -15,7 +15,6 @@ import { getAllJobs } from "../../../services/axios";
  * ====================
  * Componentes
  * ====================*/
-import Title from "../../core/titles/Title";
 import Button from "../../core/buttons/Button";
 import CardJob from "../../core/cardJob/CardJob";
 
@@ -28,7 +27,7 @@ const ListJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [validate, setValidate] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const fetchJobs = async () => {
     try {
       const { company_id } = JSON.parse(localStorage.getItem("user"));
@@ -46,16 +45,19 @@ const ListJobs = () => {
   };
 
   const handleNext = () => {
-    setCurrentPage(currentPage + 1);
+    const remainingData = jobs.length % 5; // Verifica si hay datos restantes en la página actual
+    if (remainingData === 0) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   useEffect(() => {
     fetchJobs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   return (
     <div className={css.container}>
-      <Title titleType="bigTitle" value="Ofertas activas" />
       <div className={css.containerItems}>
         <div className={css.containerListJobs}>
           {validate ? (
@@ -67,18 +69,16 @@ const ListJobs = () => {
           )}
         </div>
         <div className={css.containerPagination}>
-          <div className={css.pagination}>
-            <Button
-              buttonType="btnPrimary"
-              onClick={handlePrevious}
-              disabled={currentPage === 1}
-            >
-              Anterior
-            </Button>
-            <Button buttonType="btnPrimary" onClick={handleNext}>
-              siguiente
-            </Button>
-          </div>
+          <Button
+            buttonType="btnPrimary"
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
+          >
+            Anterior
+          </Button>
+          <Button buttonType="btnPrimary" onClick={handleNext}>
+            siguiente
+          </Button>
         </div>
       </div>
     </div>
