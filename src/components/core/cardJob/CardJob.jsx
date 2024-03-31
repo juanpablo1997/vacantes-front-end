@@ -26,13 +26,20 @@ import { MyContext } from "../../../context/Context";
  * ==============================
  * Este componente renderiza una tarjeta con información sobre el trabajo. */
 const CardJob = ({ job }) => {
-  const [offer, setOffer] = useState({});
-  const { setModal } = useContext(MyContext);
+  const { setModal, setOffer, setSelectOffer } = useContext(MyContext);
 
+  const handleChange = () => {
+    //1. Actualiza el estado del modal para poder renderizarlo
+    setModal(true)
+    setOffer(job)
+  }
 
+  const handleClick = () => {
+    setSelectOffer(job)
+  }
 
   return (
-    <div className={css.card}>
+    <div className={css.card} onClick={handleClick}>
       <div>
         <SubTitle value={job.title} />
       </div>
@@ -50,7 +57,7 @@ const CardJob = ({ job }) => {
       </div>
       <div className={css.buttons}>
         <Button buttonType="btnPrimary">Eliminar</Button>
-        <Button buttonType="btnPrimary"  onClick={() => setModal(true)}>Actializar</Button>
+        <Button buttonType="btnPrimary" onClick={handleChange}>Editar</Button>
       </div>
     </div>
   );

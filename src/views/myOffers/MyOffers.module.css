@@ -11,3 +11,9 @@
     display: grid;
     grid-template-columns: 40% 60%;
  }
+
+ .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }

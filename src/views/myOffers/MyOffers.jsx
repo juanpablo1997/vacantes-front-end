@@ -36,7 +36,7 @@ const MyOffers = () => {
   // Declaración de variables globales
   const [name, setName] = useState("");
   const [goLogin, setGoLogin] = useState(false);
-  const { closeSesion, existingUser, modal, setModal } = useContext(MyContext);
+  const { closeSesion, existingUser, modal, offer } = useContext(MyContext);
 
   // Funcion para obtener la data de la empresa cargada en localStorage
   const loadDataCompanyLocalStorage = async () => {
@@ -90,14 +90,8 @@ const MyOffers = () => {
       <Title titleType="bigTitle" value="Ofertas activas" />
       <div className={css.jobs}>
         <ListJobs />
-        {
-          modal && (
-            <Modal />
-          )
-        }
-        <DetailsJobs />
+        <div className={css.modal}>{modal ? <Modal /> : <DetailsJobs />}</div>
       </div>
-      
     </div>
   );
 };

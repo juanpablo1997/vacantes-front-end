@@ -8,7 +8,7 @@ import css from "../listJobs/ListJobs.module.css";
  * ====================
  * Hooks - Dependencias
  * ====================*/
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getAllJobs } from "../../../services/axios";
 
 /**
@@ -17,6 +17,7 @@ import { getAllJobs } from "../../../services/axios";
  * ====================*/
 import Button from "../../core/buttons/Button";
 import CardJob from "../../core/cardJob/CardJob";
+import { MyContext } from "../../../context/Context";
 
 /**
  * ==============================
@@ -27,12 +28,14 @@ const ListJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [validate, setValidate] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const {setSelectOffer} = useContext(MyContext);
 
   const fetchJobs = async () => {
     try {
       const { company_id } = JSON.parse(localStorage.getItem("user"));
       const { data } = await getAllJobs(company_id, currentPage);
       setJobs(data);
+      setSelectOffer(data[0])
     } catch (err) {
       setValidate(true);
     }

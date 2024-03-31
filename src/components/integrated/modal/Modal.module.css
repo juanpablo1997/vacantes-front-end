@@ -1,4 +1,83 @@
+/* ==========================================================================
+   Formulario de Registro
+   ==========================================================================
+
+  Descripción del archivo:
+  - Objetivo: Contiene todos los estilos para el componente Registe.jsx
+  - Autor: Juan Pablo Orozco
+  - Verción:  1.0
+  - Fecha Creación: 31/03/2024
+*/
+
+/* ==========================================================================
+     Formulario
+     ==========================================================================
+     Contiene entradas de texto y uno de archivo, un link hacia login y un botón
+     que ejecuta la función de envío de información */
+
+.form_inputs {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fechas {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form > * {
+  width: 100%;
+}
+
+.form {
+  gap: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==========================================================================
+     Seccion del formulario
+     ==========================================================================
+     Contiene un título, un subtitulo, un fomulario, un link para login y un
+     mensaje de agradecimiento */
+
+.titleItem {
+  padding-bottom: 30px;
+  grid-area: titleItem;
+}
+
+.formItem {
+  grid-area: formItem;
+}
+
+/* Apecto del contenedor de la sección del formulario */
 .container {
-    width: 100%;
-    background-color: aqua;
+  width: 70%;
+  grid-template:
+    "titleItem"
+    "formItem";
+}
+
+.form {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--SecondaryGrey);
+  -webkit-box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+  -moz-box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+  box-shadow: 0px 0px 23px -4px rgba(7, 7, 7, 0.53);
+}
+
+.buttonFM {
+  gap: 20px;
+  display: flex;
+  padding-top: 20px;
+  justify-content: flex-end;
 }
